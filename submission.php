@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $to = "a@adilene.net";
     $subject = "Contact Form Submission";
     $body = "Name: $name\nEmail: $email\n\n$message";
+    $headers = "From: adilene <a@adilene.net>";
 }
 ?>
 
@@ -23,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body style="background-color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:100vh;">
         <?php
             
-            if (mail($to, $subject, $body)) {
+            if (mail($to, $subject, $body, $headers)) {
                 echo "<h1>success</h1>";
                 echo "submission successfully sent!";
                 echo "<br><br>redirecting you back to the main page...";
