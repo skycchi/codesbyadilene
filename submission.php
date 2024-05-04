@@ -1,4 +1,9 @@
 <?php
+if (!empty($_POST['honeypot'])) {
+    echo "something went wrong. please try again later.";
+    exit;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
